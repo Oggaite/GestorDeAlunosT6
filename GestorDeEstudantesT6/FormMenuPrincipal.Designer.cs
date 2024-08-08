@@ -33,7 +33,7 @@
             this.cadastrarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarAlunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarRemoverAlunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciarAlunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +50,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // alunosToolStripMenuItem
@@ -59,12 +59,13 @@
             this.cadastrarAlunoToolStripMenuItem,
             this.listarAlunosToolStripMenuItem,
             this.estatísticasToolStripMenuItem,
-            this.editarRemoverAlunosToolStripMenuItem,
+            this.editarToolStripMenuItem,
             this.gerenciarAlunosToolStripMenuItem,
             this.imprimirToolStripMenuItem});
             this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
             this.alunosToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.alunosToolStripMenuItem.Text = "Alunos";
+            this.alunosToolStripMenuItem.Click += new System.EventHandler(this.alunosToolStripMenuItem_Click);
             // 
             // cadastrarAlunoToolStripMenuItem
             // 
@@ -86,11 +87,11 @@
             this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.estatísticasToolStripMenuItem.Text = "Estatísticas";
             // 
-            // editarRemoverAlunosToolStripMenuItem
+            // editarToolStripMenuItem
             // 
-            this.editarRemoverAlunosToolStripMenuItem.Name = "editarRemoverAlunosToolStripMenuItem";
-            this.editarRemoverAlunosToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.editarRemoverAlunosToolStripMenuItem.Text = "Editar/Remover Alunos";
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.editarToolStripMenuItem.Text = "Editar/Remover Alunos";
             // 
             // gerenciarAlunosToolStripMenuItem
             // 
@@ -125,8 +126,8 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMenuPrincipal";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SGA - Menu Principal";
+            this.Text = "FormMenuPrincipal";
+            this.Load += new System.EventHandler(this.FormMenuPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -140,10 +141,10 @@
         private System.Windows.Forms.ToolStripMenuItem alunosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarAlunoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarAlunosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estatísticasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem estatísticasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarRemoverAlunosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciarAlunosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
     }

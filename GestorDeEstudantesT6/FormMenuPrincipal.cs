@@ -17,16 +17,26 @@ namespace GestorDeEstudantesT6
             InitializeComponent();
         }
 
+        private void FormMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void alunosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
         private void cadastrarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormInserirEstudante inserirEstudante = new FormInserirEstudante();
+            FormMenuPrincipa inserirEstudante = new FormMenuPrincipa();
             inserirEstudante.Show();
         }
 
         private void listarAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormListaDeEstudantes listaDeEstudantes = new FormListaDeEstudantes();
-            listaDeEstudantes.Show();
+            FormListaEstudantes listarEstudantes = new FormListaEstudantes();
+            listarEstudantes.Show();
         }
     }
 }
