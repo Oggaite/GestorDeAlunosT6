@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAtualizarApagarAlunos));
-            this.buttonCadastrar = new System.Windows.Forms.Button();
-            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonSalvar = new System.Windows.Forms.Button();
+            this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonEnviarFoto = new System.Windows.Forms.Button();
             this.pictureBoxFoto = new System.Windows.Forms.PictureBox();
             this.textBoxEndereco = new System.Windows.Forms.TextBox();
@@ -49,29 +49,32 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonCadastrar
+            // buttonSalvar
             // 
-            this.buttonCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastrar.Location = new System.Drawing.Point(14, 527);
-            this.buttonCadastrar.Name = "buttonCadastrar";
-            this.buttonCadastrar.Size = new System.Drawing.Size(135, 51);
-            this.buttonCadastrar.TabIndex = 36;
-            this.buttonCadastrar.Text = "Salvar";
-            this.buttonCadastrar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalvar.Location = new System.Drawing.Point(14, 527);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(135, 51);
+            this.buttonSalvar.TabIndex = 36;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
-            // buttonCancelar
+            // buttonApagar
             // 
-            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(166, 527);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(135, 51);
-            this.buttonCancelar.TabIndex = 35;
-            this.buttonCancelar.Text = "Apagar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagar.Location = new System.Drawing.Point(166, 527);
+            this.buttonApagar.Name = "buttonApagar";
+            this.buttonApagar.Size = new System.Drawing.Size(135, 51);
+            this.buttonApagar.TabIndex = 35;
+            this.buttonApagar.Text = "Apagar";
+            this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonEnviarFoto
             // 
@@ -227,8 +230,10 @@
             // 
             this.textBoxId.Location = new System.Drawing.Point(124, 12);
             this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(163, 20);
+            this.textBoxId.Size = new System.Drawing.Size(79, 20);
             this.textBoxId.TabIndex = 38;
+            this.textBoxId.TextChanged += new System.EventHandler(this.textBoxId_TextChanged);
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
             // label7
             // 
@@ -240,15 +245,26 @@
             this.label7.TabIndex = 37;
             this.label7.Text = "Id";
             // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.Location = new System.Drawing.Point(209, 10);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBuscar.TabIndex = 39;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            // 
             // FormAtualizarApagarAlunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 596);
+            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.buttonCadastrar);
-            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonSalvar);
+            this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEnviarFoto);
             this.Controls.Add(this.pictureBoxFoto);
             this.Controls.Add(this.textBoxEndereco);
@@ -264,7 +280,9 @@
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.label2);
             this.Name = "FormAtualizarApagarAlunos";
-            this.Text = "FormAtualizarApagarAlunos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SGA - Atualizar e Apagar";
+            this.Load += new System.EventHandler(this.FormAtualizarApagarAlunos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -275,25 +293,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonCadastrar;
-        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.Button buttonApagar;
         private System.Windows.Forms.Button buttonEnviarFoto;
-        private System.Windows.Forms.PictureBox pictureBoxFoto;
-        private System.Windows.Forms.TextBox textBoxEndereco;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxTelefone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonMasculino;
-        private System.Windows.Forms.RadioButton radioButtonFeminino;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePickerNascimento;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxSobrenome;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonBuscar;
+        internal System.Windows.Forms.PictureBox pictureBoxFoto;
+        internal System.Windows.Forms.TextBox textBoxEndereco;
+        internal System.Windows.Forms.TextBox textBoxTelefone;
+        internal System.Windows.Forms.RadioButton radioButtonMasculino;
+        internal System.Windows.Forms.RadioButton radioButtonFeminino;
+        internal System.Windows.Forms.DateTimePicker dateTimePickerNascimento;
+        internal System.Windows.Forms.TextBox textBoxSobrenome;
+        internal System.Windows.Forms.TextBox textBoxNome;
+        internal System.Windows.Forms.TextBox textBoxId;
     }
 }
